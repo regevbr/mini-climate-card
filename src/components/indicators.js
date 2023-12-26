@@ -1,18 +1,9 @@
 import { LitElement, html, css } from 'lit';
-
 import { styleMap } from 'lit/directives/style-map.js';
-import { ScopedRegistryHost } from '@lit-labs/scoped-registry-mixin';
 import handleClick from '../utils/handleClick';
 import { TAP_ACTIONS } from '../const';
-import buildElementDefinitions from '../utils/buildElementDefinitions';
 
-export default class ClimateIndicators extends ScopedRegistryHost(LitElement) {
-  static get defineId() { return 'mc-indicators'; }
-
-  static get elementDefinitions() {
-    return buildElementDefinitions(['ha-icon'], ClimateIndicators);
-  }
-
+export default class ClimateIndicators extends LitElement {
   static get properties() {
     return {
       indicators: { type: Object },
@@ -57,10 +48,6 @@ export default class ClimateIndicators extends ScopedRegistryHost(LitElement) {
   }
 
   render() {
-    if (!ClimateIndicators.elementDefinitionsLoaded) {
-      return html``;
-    }
-
     const indicatorsToShow = Object.entries(this.indicators)
       .map(entry => entry[1])
       .filter(indicator => !indicator.hide);
@@ -117,3 +104,5 @@ export default class ClimateIndicators extends ScopedRegistryHost(LitElement) {
     `;
   }
 }
+
+customElements.define('mc-indicators', ClimateIndicators);

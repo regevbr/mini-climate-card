@@ -1,21 +1,7 @@
 import { LitElement, html, css } from 'lit';
-import { ScopedRegistryHost } from '@lit-labs/scoped-registry-mixin';
 import sharedStyle from '../sharedStyle';
-import ClimateMenu from './mwc/menu';
-import ClimateListItem from './mwc/list-item';
-import buildElementDefinitions from '../utils/buildElementDefinitions';
 
-export default class ClimateFanModeSecondary extends ScopedRegistryHost(LitElement) {
-  static get defineId() { return 'mc-fan-mode-secondary'; }
-
-  static get elementDefinitions() {
-    return buildElementDefinitions([
-      'ha-icon',
-      ClimateMenu,
-      ClimateListItem,
-    ], ClimateFanModeSecondary);
-  }
-
+export default class ClimateFanModeSecondary extends LitElement {
   constructor() {
     super();
     this.fanMode = {};
@@ -104,10 +90,6 @@ export default class ClimateFanModeSecondary extends ScopedRegistryHost(LitEleme
   }
 
   render() {
-    if (!ClimateFanModeSecondary.elementDefinitionsLoaded) {
-      return html``;
-    }
-
     const { type } = this.config.secondary_info;
 
     if (type === 'fan-mode-dropdown') {
@@ -149,3 +131,5 @@ export default class ClimateFanModeSecondary extends ScopedRegistryHost(LitEleme
     `];
   }
 }
+
+customElements.define('mc-fan-mode-secondary', ClimateFanModeSecondary);

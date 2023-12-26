@@ -9,8 +9,12 @@ export default class HvacModeObject {
 
   get hide() {
     if (this.config.functions.hide) {
-      return this.config.functions.hide(this.state, this.entity,
-        this.climate.entity, this.climate.mode);
+      return this.config.functions.hide(
+        this.state,
+        this.entity,
+        this.climate.entity,
+        this.climate.mode,
+      );
     }
 
     return false;
@@ -24,8 +28,11 @@ export default class HvacModeObject {
     let state = this.originalState;
 
     if (this.config.functions.state && this.config.functions.state.mapper) {
-      state = this.config.functions.state.mapper(state, this.entity,
-        this.climate.entity);
+      state = this.config.functions.state.mapper(
+        state,
+        this.entity,
+        this.climate.entity,
+      );
     }
 
     return state;

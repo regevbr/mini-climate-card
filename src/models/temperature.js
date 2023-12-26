@@ -52,7 +52,12 @@ export default class TemperatureObject {
   }
 
   get hide() {
-    return this.shouldHideCurrentTemperature(this.value, this.temperatureEntity,
-      this.targetTemperatureEntity, this.climate.entity, this.climate.mode);
+    return this.shouldHideCurrentTemperature(
+      this.value,
+      this.temperatureEntity,
+      this.targetTemperatureEntity,
+      this.climate.entity,
+      this.climate.mode,
+    );
   }
 }
