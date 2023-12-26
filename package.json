@@ -1,6 +1,6 @@
 {
   "name": "mini-climate-card",
-  "version": "v2.7.0",
+  "version": "v2.7.1",
   "description": "a/c card for Home Assistant Lovelace UI",
   "keywords": [
     "home-assistant",
@@ -21,6 +21,7 @@
     "@material/mwc-list": "^0.27.0",
     "@material/mwc-menu": "^0.27.0",
     "@material/mwc-ripple": "^0.27.0",
+    "@webcomponents/scoped-custom-element-registry": "^0.0.9",
     "lit": "^3.1.0",
     "resize-observer-polyfill": "^1.5.1"
   },
@@ -32,13 +33,14 @@
     "@babel/plugin-transform-template-literals": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@rollup/plugin-json": "^4.0.3",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "babel-plugin-iife-wrap": "^1.1.0",
+    "babel-plugin-transform-beautifier": "^0.1.0",
     "babel-preset-minify": "^0.5.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.26.0",
-    "rollup": "^2.10.5",
-    "rollup-plugin-node-resolve": "^3.4.0"
+    "rollup": "^2.10.5"
   },
   "scripts": {
     "build": "npm run lint && npm run rollup && npm run babel",

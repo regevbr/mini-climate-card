@@ -1,4 +1,4 @@
-import resolve from 'rollup-plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import json from '@rollup/plugin-json';
 import ignore from './rollup-plugins/ignore';
 
@@ -10,7 +10,9 @@ export default {
     name: 'MiniClimate',
   },
   plugins: [
-    resolve(),
+    nodeResolve({
+      // exportConditions: ['development'],
+    }),
     json(),
     ignore({
       files: [
